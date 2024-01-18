@@ -24,11 +24,13 @@ class TodoController extends Controller
 
     public function update(Request $request, Todo $todo)
     {
-
+        $todo->update(["isDone" => !$todo->isDone]);
+        return redirect()->route("index");
     }
 
     public function destroy(Todo $todo)
     {
-
+        $todo->delete();
+        return redirect()->route("index");
     }
 }
