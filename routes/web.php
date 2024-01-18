@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\TodoController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::patch('/{todo}', [TodoController::class,'update'])->name('update');
+Route::delete('/{todo}', [TodoController::class,'destroy'])->name('destroy');
