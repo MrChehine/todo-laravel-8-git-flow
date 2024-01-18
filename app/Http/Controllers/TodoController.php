@@ -9,7 +9,8 @@ class TodoController extends Controller
 {
     public function index()
     {
-
+        $todos = Todo::all();
+        return view("welcome", ["todos"=> $todos]);
     }
 
     public function store(Request $request)
